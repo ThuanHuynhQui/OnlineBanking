@@ -15,5 +15,6 @@ namespace OnlineBanking.Models
         public int ChequeTypeId { get; set; }
         [Required]
         public string ChequeName { get; set; }
+        public ICollection<Cheque> Cheque { get; set; }
     }
 }
