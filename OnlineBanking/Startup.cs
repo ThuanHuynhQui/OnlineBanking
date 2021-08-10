@@ -27,7 +27,7 @@ namespace OnlineBanking
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            string url = "DESKTOP-S90653I\\SQLEXPRESS;database=OnlineBankingDB;uid=thuan.huynhqui;pwd=1";
+            string url = "server=DESKTOP-S90653I\\SQLEXPRESS;database=OnlineBankingDB;uid=thuan.huynhqui;pwd=1";
             services.AddScoped<ICardService, CardService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddDbContext<BankingContext>(options => options.UseSqlServer(url));
