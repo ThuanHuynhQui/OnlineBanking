@@ -20,6 +20,8 @@ namespace OnlineBanking.Models
         public bool Gender { get; set; }
         public string DoB { get; set; }
         [Required]
+        public string IdentityId { get; set; }
+        [Required]
         public string Email { get; set; }
         [Required]
         public string Phone { get; set; }
