@@ -22,9 +22,9 @@ namespace OnlineBanking.Services
         Task<bool> EditUser(User EditUser);
 
         //Feedback
-        Task<IEnumerable<Feedback>> GetFeedbacks(string AccountId);
+        Task<IEnumerable<Feedback>> GetFeedbacks(string FeedbackId);
         Task<Feedback> GetFeedback(int FeedbackId);
-        Task<bool> AddFeedback(Account NewAccount);
-        Task<bool> EditFeedback(Account EditAccount);
+        Task<bool> AddFeedback(Feedback NewFeedback);
+        Task<bool> EditFeedback(Feedback EditFeedback);
     }
 }

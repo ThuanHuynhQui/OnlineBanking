@@ -3,35 +3,74 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OnlineBanking.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace OnlineBanking.Services
 {
     public class AccountService : IAccountService
     {
+        private BankingContext context;
+        public AccountService(BankingContext context)
+        {
+            this.context = context;
+        }
         // -------------------- Account --------------------//
-        public Task<bool> AddAccount(Account NewAccount)
+        public async Task<bool> AddAccount(Account NewAccount)
         {
-            throw new NotImplementedException();
+            Account account = context.Accounts.SingleOrDefault(a => a.AccountId.Equals(NewAccount.AccountId));
+            if(account == null)
+            {
+                context.Accounts.Add(NewAccount);
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public Task<bool> DeleteAccount(string AccountId)
+        public async Task<bool> DeleteAccount(string AccountId)
         {
-            throw new NotImplementedException();
+            Account account = context.Accounts.SingleOrDefault(a => a.AccountId.Equals(AccountId));
+            if (account != null)
+            {
+                context.Accounts.Remove(account);
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public Task<bool> EditAccount(Account EditAccount)
+        public async Task<bool> EditAccount(Account EditAccount)
         {
-            throw new NotImplementedException();
+            Account account = context.Accounts.SingleOrDefault(a => a.AccountId.Equals(EditAccount.AccountId));
+            if (account != null)
+            {
+                account.Password = EditAccount.Password;
+                account.Role = EditAccount.Role;
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public Task<Account> GetAccount(string AccountId)
+        public async Task<Account> GetAccount(string AccountId)
         {
-            throw new NotImplementedException();
+            Account account = await context.Accounts.SingleOrDefaultAsync(a => a.AccountId.Equals(AccountId));
+            return account;
         }
-        public Task<IEnumerable<Account>> GetAccounts()
+        public async Task<IEnumerable<Account>> GetAccounts()
         {
-            throw new NotImplementedException();
+            return await context.Accounts.ToListAsync();
         }
 
         // ----------------- Feedback -------------------- //
-        public Task<bool> AddFeedback(Account NewAccount)
+        public Task<bool> AddFeedback(Feedback NewFeedback)
         {
             throw new NotImplementedException();
         }
@@ -43,7 +82,7 @@ namespace OnlineBanking.Services
         {
             throw new NotImplementedException();
         }
-        public Task<bool> EditFeedback(Account EditAccount)
+        public Task<bool> EditFeedback(Feedback EditFeedback)
         {
             throw new NotImplementedException();
         }

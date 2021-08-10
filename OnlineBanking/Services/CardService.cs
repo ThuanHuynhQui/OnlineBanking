@@ -70,7 +70,7 @@ namespace OnlineBanking.Services
         {
             throw new NotImplementedException();
         }
-        public Task<ChequeType> GetCheque()
+        public Task<IEnumerable<Cheque>> GetCheques(string CardId)
         {
             throw new NotImplementedException();
         }
@@ -88,7 +88,8 @@ namespace OnlineBanking.Services
         {
             throw new NotImplementedException();
         }
-        public Task<IEnumerable<Cheque>> GetCheques(string CardId)
+        
+        public Task<ChequeType> GetChequeType(int ChequeTypeId)
         {
             throw new NotImplementedException();
         }

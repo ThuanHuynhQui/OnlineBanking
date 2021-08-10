@@ -9,7 +9,7 @@ namespace OnlineBanking.Services
     public interface ICardService
     {
         // Card
-        Task<IEnumerable<Card>> GetCards(string AccountId);
+        Task<IEnumerable<Card>> GetCards(string CardId);
         Task<Card> GetCard(string CardId);
         Task<bool> AddCard(Card NewCard);
         Task<bool> EditCard(Card EditCard);
@@ -31,7 +31,7 @@ namespace OnlineBanking.Services
 
         //Cheque Type
         Task<IEnumerable<ChequeType>> GetChequeTypes();
-        Task<ChequeType> GetCheque();
+        Task<ChequeType> GetChequeType(int ChequeTypeId);
         Task<bool> AddChequeType(ChequeType NewChequeType);
         Task<bool> EditChequeType(ChequeType EditChequeType);
         Task<bool> DeleteChequeType(int ChequeTypeId);
@@ -44,7 +44,7 @@ namespace OnlineBanking.Services
 
         //Service
         Task<IEnumerable<Service>> GetServices();
-        Task<Service> GetService(int id);
+        Task<Service> GetService(int ServiceId);
         Task<bool> AddService(Service NewService);
         Task<bool> EditService(Service EditService);
         Task<bool> DeleteService(int ServiceId);
