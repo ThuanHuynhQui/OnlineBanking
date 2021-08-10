@@ -7,5 +7,6 @@ namespace OnlineBanking.Services
 {
     public interface ITransactionService
     {
+        
     }
 }

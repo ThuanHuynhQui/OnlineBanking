@@ -20,6 +20,7 @@ namespace OnlineBanking.Models
         [Required]
         public string Pin { get; set; }
         [Required]
+        [DataType(DataType.DateTime)]
         public string OpenDate { get; set; }
         [Required]
         public int TypeId { get; set; }

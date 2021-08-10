@@ -27,6 +27,7 @@ namespace OnlineBanking.Models
         public Boolean Status { get; set; }
         public string Reason { get; set; }
         [Required]
+        [DataType(DataType.DateTime)]
         public string Time { get; set; }
     }
 }

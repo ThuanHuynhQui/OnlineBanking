@@ -29,6 +29,14 @@ namespace OnlineBanking.Services
         Task<bool> EditCheque(Cheque EditCheque);
         Task<bool> DeleteCheque(int ChequeId);
 
+        //Cheque Type
+        Task<IEnumerable<ChequeType>> GetChequeTypes();
+        Task<ChequeType> GetCheque();
+        Task<bool> AddChequeType(ChequeType NewChequeType);
+        Task<bool> EditChequeType(ChequeType EditChequeType);
+        Task<bool> DeleteChequeType(int ChequeTypeId);
+
+
         //ServiceCard
         Task<IEnumerable<ServiceCard>> GetServiceCards(string CardId);
         Task<bool> AddServiceCard(ServiceCard NewServiceCard);

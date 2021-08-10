@@ -8,6 +8,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using OnlineBanking.Repository;
+using OnlineBanking.Services;
+using Microsoft.EntityFrameworkCore;
+
 namespace OnlineBanking
 {
     public class Startup
@@ -23,6 +27,10 @@ namespace OnlineBanking
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            string url = "DESKTOP-S90653I\\SQLEXPRESS;database=OnlineBankingDB;uid=thuan.huynhqui;pwd=1";
+            services.AddScoped<ICardService, CardService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddDbContext<BankingContext>(options => options.UseSqlServer(url));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

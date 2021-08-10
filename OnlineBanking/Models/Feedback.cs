@@ -10,8 +10,12 @@ namespace OnlineBanking.Models
     [Table("tbFeedback")]
     public class Feedback
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FeedbackId { get; set; }
+        [Required]
         public string AccountId { get; set; }
+        [Required]
         public string Content { get; set; }
         public bool Status { get; set; }
     }
