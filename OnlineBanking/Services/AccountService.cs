@@ -58,19 +58,19 @@ namespace OnlineBanking.Services
         }
         public async Task<Account> GetAccount(string AccountId)
         {
-            Account account = await context.Accounts.SingleOrDefaultAsync(a => a.AccountId.Equals(AccountId));
+            Account account = context.Accounts.SingleOrDefault(a => a.AccountId.Equals(AccountId));
             return account;
         }
         public async Task<IEnumerable<Account>> GetAccounts()
         {
-            return await context.Accounts.ToListAsync();
+            return context.Accounts.ToList();
         }
 
         // ----------------- Feedback -------------------- //
         public async Task<bool> AddFeedback(Feedback NewFeedback)
         {
             context.Feedbacks.Add(NewFeedback);
-            if (await context.SaveChangesAsync() > 0)
+            if (context.SaveChanges() > 0)
             {
                 return true;
             }
@@ -78,13 +78,13 @@ namespace OnlineBanking.Services
         }
         public async Task<Feedback> GetFeedback(int FeedbackId)
         {
-            Feedback feedback = await context.Feedbacks.SingleOrDefaultAsync(f => f.FeedbackId.Equals(FeedbackId));
+            Feedback feedback = context.Feedbacks.SingleOrDefault(f => f.FeedbackId.Equals(FeedbackId));
             return feedback;
         }
         public async Task<IEnumerable<Feedback>> GetFeedbacks(string AccountId)
         {
-            var feedbacks = await context.Feedbacks.ToListAsync();
-            if (!string.IsNullOrEmpty(AccountId))
+            var feedbacks = context.Feedbacks.ToList();
+            if (string.IsNullOrEmpty(AccountId) == false)
             {
                 feedbacks = feedbacks.Where(f => f.AccountId.Equals(AccountId)).ToList();
             }
@@ -92,7 +92,7 @@ namespace OnlineBanking.Services
         }
         public async Task<bool> EditFeedback(Feedback EditFeedback)
         {
-            Feedback feedback = await context.Feedbacks.SingleOrDefaultAsync(f => f.FeedbackId.Equals(EditFeedback.FeedbackId));
+            Feedback feedback = context.Feedbacks.SingleOrDefault(f => f.FeedbackId.Equals(EditFeedback.FeedbackId));
             if(feedback != null)
             {
                 feedback.Status = EditFeedback.Status;
@@ -107,7 +107,7 @@ namespace OnlineBanking.Services
         // --------------------- User -------------------- //
         public async Task<bool> EditUser(User EditUser)
         {
-            User user = await context.Users.SingleOrDefaultAsync(u => u.UserId.Equals(EditUser.UserId));
+            User user = context.Users.SingleOrDefault(u => u.UserId.Equals(EditUser.UserId));
             if (user != null)
             {
                 user.Address = EditUser.Address;
@@ -124,7 +124,7 @@ namespace OnlineBanking.Services
         }
         public async Task<bool> AddUser(User NewUser)
         {
-            User user = await context.Users.SingleOrDefaultAsync(u => u.IdentityId.Equals(NewUser.IdentityId));
+            User user = context.Users.SingleOrDefault(u => u.IdentityId.Equals(NewUser.IdentityId));
             if(user == null)
             {
                 context.Users.Add(NewUser);
@@ -137,12 +137,12 @@ namespace OnlineBanking.Services
         }
         public async Task<User> GetUser(int UserId)
         {
-            User user = await context.Users.SingleOrDefaultAsync(u => u.UserId.Equals(UserId));
+            User user = context.Users.SingleOrDefault(u => u.UserId.Equals(UserId));
             return user;
         }
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return await context.Users.ToListAsync();
+            return context.Users.ToList();
         }
     }
 }
