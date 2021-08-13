@@ -17,6 +17,7 @@ namespace OnlineBanking.Models
         public string AccountId { get; set; }
         [Required]
         public string Content { get; set; }
+        public string Reply { get; set; }
         public bool Status { get; set; }
     }
 }

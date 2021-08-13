@@ -5,22 +5,49 @@ using System.Linq;
 using System.Threading.Tasks;
 using OnlineBanking.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace OnlineBanking.Services
 {
     public class AccountService : IAccountService
     {
-        private BankingContext context;
+        private readonly BankingContext context;
         public AccountService(BankingContext context)
         {
             this.context = context;
         }
         // -------------------- Account --------------------//
-        public async Task<bool> AddAccount(Account NewAccount)
+        public async Task<bool> AddAccount(UserAccount NewUserAccount)
         {
-            Account account = context.Accounts.SingleOrDefault(a => a.AccountId.Equals(NewAccount.AccountId));
-            if(account == null)
+            Account NewAccount = context.Accounts.SingleOrDefault(a => a.AccountId.Equals(NewUserAccount.AccountId));
+            if(NewAccount == null)
             {
+                // -------- Add User --------//
+                User user = new User
+                {
+                    FullName = NewUserAccount.FullName,
+                    Address = NewUserAccount.Address,
+                    Gender = NewUserAccount.Gender,
+                    DoB = NewUserAccount.DoB,
+                    IdentityId = NewUserAccount.IdentityId,
+                    Email = NewUserAccount.Email,
+                    Phone = NewUserAccount.Phone,
+                    Avatar = NewUserAccount.Avatar
+                };
+                context.Users.Add(user);
+                context.SaveChanges();
+
+                // -------- Add Account --------//
+                NewAccount = new Account
+                {
+                    AccountId = NewUserAccount.AccountId,
+                    UserId = user.UserId,
+                    Password = NewUserAccount.Password,
+                    OpenDate = DateTime.Now.ToShortDateString(),
+                    Role = false
+                };
+                
                 context.Accounts.Add(NewAccount);
                 if (context.SaveChanges() > 0)
                 {
@@ -49,6 +76,7 @@ namespace OnlineBanking.Services
             {
                 account.Password = EditAccount.Password;
                 account.Role = EditAccount.Role;
+                account.Active = EditAccount.Active;
                 if (context.SaveChanges() > 0)
                 {
                     return true;
@@ -63,7 +91,7 @@ namespace OnlineBanking.Services
         }
         public async Task<IEnumerable<Account>> GetAccounts()
         {
-            return context.Accounts.ToList();
+            return await context.Accounts.ToListAsync();
         }
 
         // ----------------- Feedback -------------------- //
@@ -95,7 +123,8 @@ namespace OnlineBanking.Services
             Feedback feedback = context.Feedbacks.SingleOrDefault(f => f.FeedbackId.Equals(EditFeedback.FeedbackId));
             if(feedback != null)
             {
-                feedback.Status = EditFeedback.Status;
+                feedback.Status = true;
+                feedback.Reply = EditFeedback.Reply;
                 if (context.SaveChanges() > 0)
                 {
                     return true;
@@ -143,6 +172,12 @@ namespace OnlineBanking.Services
         public async Task<IEnumerable<User>> GetUsers()
         {
             return context.Users.ToList();
+        }
+
+        public async Task<UserAccount> GetUserAccount(string AccountId)
+        {
+            var userAccount = await context.UserAccounts.SingleOrDefaultAsync(u=>u.AccountId.Equals(AccountId));
+            return userAccount;
         }
     }
 }

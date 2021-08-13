@@ -53,9 +53,6 @@ E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.TagHelpers.input.cache
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.TagHelpers.output.cache
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.RazorCoreGenerate.cache
-E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Admin\Shared\Error.cshtml.g.cs
-E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Admin\Shared\_Layout.cshtml.g.cs
-E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Admin\Shared\_ValidationScriptsPartial.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Home\Privacy.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\Error.cshtml.g.cs
@@ -154,3 +151,8 @@ E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\bin\Debug\net
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Feedback\Index.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Account\Index.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\Partials\_Sidebar.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Feedback\Reply.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Account\Create.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Account\Details.cshtml.g.cs
