@@ -1,0 +1,45 @@
+﻿@model OnlineBanking.Models.CardType
+
+@{
+    ViewData["Title"] = "Details";
+}
+@section style
+{
+    <link rel="stylesheet" href="~/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+}
+
+<h1>Details</h1>
+
+<hr />
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">DataTable with minimal features & hover style</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.TypeName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.TypeName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Fee)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Fee)
+                </dd>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+    <!-- /.col -->
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TypeId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

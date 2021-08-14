@@ -1,0 +1,85 @@
+﻿@model IEnumerable<OnlineBanking.Models.Card>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section style
+{
+    <link rel="stylesheet" href="~/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+}
+<h1>List of Cards</h1>
+
+<hr />
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">DataTable with minimal features & hover style</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>CardId</th>
+                            <th>AccountId</th>
+                            <th>Balance</th>
+                            <th>Pin</th>
+                            <th>OpenDate</th>
+                            <th>TypeId</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CardId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccountId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Balance)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Pin)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OpenDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TypeId)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.CardId">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.CardId">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.CardId" onclick="return confirm('Are you sure delete this record.!!')">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>CardId</th>
+                            <th>AccountId</th>
+                            <th>Balance</th>
+                            <th>Pin</th>
+                            <th>OpenDate</th>
+                            <th>TypeId</th>
+                            <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+    <!-- /.col -->
+</div>

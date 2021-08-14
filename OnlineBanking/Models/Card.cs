@@ -24,8 +24,5 @@ namespace OnlineBanking.Models
         public string OpenDate { get; set; }
         [Required]
         public int TypeId { get; set; }
-        public ICollection<Transaction> Transaction { get; set; }
-        public ICollection<Cheque> Cheque { get; set; }
-        public ICollection<ServiceCard> ServiceCard { get; set; }
     }
 }

@@ -8,133 +8,126 @@ namespace OnlineBanking.Services
 {
     public class CardService : ICardService
     {
+        private Repository.BankingContext context;
+        public CardService(Repository.BankingContext context)
+        {
+            this.context = context;
+        }
         // ----------------- Card ----------------- //
-        public Task<bool> AddCard(Card NewCard)
+        public async Task<bool> AddCard(Card NewCard)
         {
-            throw new NotImplementedException();
+            var checkID = context.Cards.SingleOrDefault(o => o.CardId.Equals(NewCard.CardId));
+            if (checkID == null)
+            {
+                NewCard.OpenDate = DateTime.Now.ToString();
+                context.Cards.Add(NewCard);
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public Task<bool> DeleteCard(string CardId)
+        public async Task<bool> DeleteCard(string CardId)
         {
-            throw new NotImplementedException();
+            var findID = context.Cards.SingleOrDefault(o=>o.CardId.Equals(CardId));
+            if (findID != null)
+            {
+                context.Cards.Remove(findID);
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public Task<bool> EditCard(Card EditCard)
+        public async Task<bool> EditCard(Card EditCard)
         {
-            throw new NotImplementedException();
+            var findToEdit = context.Cards.SingleOrDefault(o => o.CardId.Equals(EditCard.CardId));
+            if (findToEdit != null)
+            {
+                findToEdit.Pin = EditCard.Pin;
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public Task<Card> GetCard(string CardId)
+        public async Task<Card> GetCard(string CardId)
         {
-            throw new NotImplementedException();
+            var findOne = context.Cards.SingleOrDefault(c=>c.CardId.Equals(CardId));
+            return findOne;
         }
 
-        public Task<IEnumerable<Card>> GetCards(string AccountId)
+        public async Task<IEnumerable<Card>> GetCards(string AccountId)
         {
-            throw new NotImplementedException();
+            var list = context.Cards.ToList();
+            if (string.IsNullOrEmpty(AccountId) == false)
+            {
+                list = list.Where(o => o.AccountId.Equals(AccountId)).ToList();
+            }
+            return list;
         }
 
         // ----------------- Card Type ----------------- //
-        public Task<bool> AddCardType(CardType NewCardType)
+        public async Task<bool> AddCardType(CardType NewCardType)
         {
-            throw new NotImplementedException();
+            var checkID = context.CardTypes.SingleOrDefault(o => o.TypeId.Equals(NewCardType.TypeId));
+            if (checkID == null)
+            {
+                context.CardTypes.Add(NewCardType);
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public Task<bool> DeleteCardType(int TypeId)
+        public async Task<bool> DeleteCardType(int TypeId)
         {
-            throw new NotImplementedException();
+            var findID = context.CardTypes.Find(TypeId);
+            if (findID != null)
+            {
+                context.CardTypes.Remove(findID);
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public Task<bool> EditCardType(CardType EditCardType)
+        public async Task<bool> EditCardType(CardType EditCardType)
         {
-            throw new NotImplementedException();
+            var findToEdit = context.CardTypes.SingleOrDefault(o => o.TypeId.Equals(EditCardType.TypeId));
+            if (findToEdit != null)
+            {
+                findToEdit.TypeName = EditCardType.TypeName;
+                findToEdit.Fee = EditCardType.Fee;
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public Task<CardType> GetCardType(int TypeId)
+        public async Task<CardType> GetCardType(int TypeId)
         {
-            throw new NotImplementedException();
+            var findOne = context.CardTypes.Find(TypeId);
+            return findOne;
         }
-        public Task<IEnumerable<CardType>> GetCardTypes()
+        public async Task<IEnumerable<CardType>> GetCardTypes()
         {
-            throw new NotImplementedException();
+            return context.CardTypes.ToList();
         }
 
-        // ----------------- Cheque ----------------- //
-        public Task<bool> AddCheque(Cheque NewCheque)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<bool> DeleteCheque(int ChequeId)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<bool> EditCheque(Cheque EditCheque)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<Cheque> GetCheque(int ChequeId)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<IEnumerable<Cheque>> GetCheques(string CardId)
-        {
-            throw new NotImplementedException();
-        }
-
-        // ----------------- ChequeType ----------------- //
-        public Task<bool> AddChequeType(ChequeType NewChequeType)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<bool> DeleteChequeType(int ChequeTypeId)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<bool> EditChequeType(ChequeType EditChequeType)
-        {
-            throw new NotImplementedException();
-        }
         
-        public Task<ChequeType> GetChequeType(int ChequeTypeId)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<IEnumerable<ChequeType>> GetChequeTypes()
-        {
-            throw new NotImplementedException();
-        }
-
-        // ----------------- Service ----------------- //
-        public Task<bool> AddService(Service NewService)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<bool> DeleteService(int ServiceId)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<bool> EditService(Service EditService)
-        {
-            throw new NotImplementedException();
-        }
-        
-        public Task<Service> GetService(int id)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<IEnumerable<Service>> GetServices()
-        {
-            throw new NotImplementedException();
-        }
-
-        // ----------------- ServiceCard ----------------- //
-        public Task<bool> AddServiceCard(ServiceCard NewServiceCard)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<bool> DeleteServiceCard(int ServiceCardId)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<IEnumerable<ServiceCard>> GetServiceCards(string CardId)
-        {
-            throw new NotImplementedException();
-        }
-
         
     }
 }

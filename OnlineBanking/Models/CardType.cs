@@ -17,6 +17,5 @@ namespace OnlineBanking.Models
         public string TypeName { get; set; }
         [Required]
         public decimal Fee { get; set; }
-        public ICollection<Card> Card { get; set; }
     }
 }

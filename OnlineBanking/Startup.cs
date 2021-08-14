@@ -27,7 +27,7 @@ namespace OnlineBanking
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            string url = "server=DESKTOP-S90653I\\SQLEXPRESS;database=OnlineBankingDB;uid=thuan.huynhqui;pwd=1";
+            string url = "server=.;database=OnlineBankingDB;Trusted_Connection=true";
             services.AddScoped<ICardService, CardService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddDbContext<BankingContext>(options => options.UseSqlServer(url));
@@ -56,7 +56,7 @@ namespace OnlineBanking
             {
                 endpoints.MapControllerRoute(
                     name: "Admin",
-                    pattern: "{area:exists}/{controller=Feedback}/{action=Index}/{id?}");
+                    pattern: "{area:exists}/{controller=Cards}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

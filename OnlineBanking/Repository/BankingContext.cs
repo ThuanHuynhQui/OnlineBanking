@@ -20,5 +20,7 @@ namespace OnlineBanking.Repository
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServiceCard> ServiceCards { get; set; }
+
+        public DbSet<viewCardAndType> viewCardAndTypes { get; set; }
     }
 }

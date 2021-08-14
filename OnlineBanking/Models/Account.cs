@@ -22,7 +22,5 @@ namespace OnlineBanking.Models
         public string OpenDate { get; set; }
         [Required]
         public bool Role { get; set; }
-        public ICollection<Feedback> Feedback { get; set; }
-        public ICollection<Card> Card { get; set; }
     }
 }
