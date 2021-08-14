@@ -1,0 +1,67 @@
+﻿@model OnlineBanking.Models.UserAccount
+
+<div class="card card-primary card-outline">
+    <div class="card-body box-profile">
+        <div class="text-center">
+            <img class="profile-user-img img-fluid img-circle"
+                 src='@Url.Content("wwwroot/Images/" + Model.Avatar)'
+                 alt="@Model.Avatar">
+        </div>
+
+        <h3 class="profile-username text-center">@Model.FullName</h3>
+
+        <ul class="list-group list-group-unbordered mb-3">
+            <li class="list-group-item">
+                <b>AccountID:</b> @Model.AccountId
+            </li>
+            <li class="list-group-item">
+                <b>Email:</b> @Model.Email
+            </li>
+            <li class="list-group-item">
+                <b>Birthday:</b> @Model.DoB
+            </li>
+            <li class="list-group-item">
+                <b>Address:</b> @Model.Address
+            </li>
+            <li class="list-group-item">
+                <b>Phone:</b> @Model.Phone
+            </li>
+            <li class="list-group-item">
+                <b>IdentityID:</b> @Model.IdentityId
+            </li>
+            <li class="list-group-item">
+                <b>Gender</b>
+                @if (Model.Gender)
+                {
+        <p>Male</p> }
+                    else
+                    {
+        <p>Female</p>}
+            </li>
+            <li class="list-group-item">
+                <b>Open date:</b> @Model.OpenDate
+            </li>
+            <li class="list-group-item">
+                <b>Active:</b>
+                @if (Model.Active)
+                {
+        <p>Yes</p> }
+                    else
+                    {
+        <p>Locked</p>}
+            </li>
+            <li class="list-group-item">
+                <b>Role:</b>
+                @if (Model.Role)
+                {
+        <p>Admin</p> }
+                    else
+                    {
+        <p>Customer</p>}
+            </li>
+        </ul>
+
+        <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+    </div>
+    <!-- /.card-body -->
+</div>
