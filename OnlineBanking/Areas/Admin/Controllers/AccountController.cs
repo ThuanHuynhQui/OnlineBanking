@@ -35,7 +35,7 @@ namespace OnlineBanking.Areas.Admin.Controllers
         {
             try
             {
-                if(file != null)
+                if(file.FileName.Length > 0)
                 {
                     var path = Path.Combine("wwwroot/Images", file.FileName);
                     Stream stream = new FileStream(path, FileMode.Create);

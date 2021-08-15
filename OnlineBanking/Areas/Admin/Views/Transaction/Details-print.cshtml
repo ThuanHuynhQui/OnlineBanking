@@ -1,0 +1,109 @@
+﻿@model OnlineBanking.Models.Transaction
+@{
+    ViewData["Title"] = "Transaction";
+}
+<div class="row">
+    <div class="col-12">
+        <!-- Main content -->
+        <div class="invoice p-3 mb-3">
+            <!-- title row -->
+            <div class="row">
+                <div class="col-12">
+                    <h4>
+                        <i class="fas fa-globe"></i> Online Banking
+                        <small class="float-right">Date: @ViewBag.Date</small>
+                    </h4>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- info row -->
+            <div class="row invoice-info">
+                <div class="col-sm-4 invoice-col">
+                    From
+                    <address>
+                        <strong>@ViewBag.Sender.FullName</strong><br>
+                        @ViewBag.Sender.Address<br>
+                        Phone: @ViewBag.Sender.Phone<br>
+                        Email: @ViewBag.Sender.Email
+                    </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                    To
+                    <address>
+                        <strong>@ViewBag.Receiver.FullName</strong><br>
+                        @ViewBag.Receiver.Address<br>
+                        Phone: @ViewBag.Receiver.Phone<br>
+                        Email: @ViewBag.Receiver.Email
+                    </address>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!-- Table row -->
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th style="width:50%">TransactionId:</th>
+                            <td>@Model.TransactionId</td>
+                        </tr>
+                        <tr>
+                            <th>Sender Card Id:</th>
+                            <td>@Model.SenderCardId</td>
+                        </tr>
+                        <tr>
+                            <th>Receiver Card Id:</th>
+                            <td>@Model.ReceiverCardId</td>
+                        </tr>
+                        <tr>
+                            <th>Amount:</th>
+                            <td>@Model.Amount</td>
+                        </tr>
+                        <tr>
+                            <th>Fee:</th>
+                            <td>@Model.Fee</td>
+                        </tr>
+                        <tr>
+                            <th>Content:</th>
+                            <td>@Model.Content</td>
+                        </tr>
+                        <tr>
+                            <th>Time:</th>
+                            <td>@Model.Time</td>
+                        </tr>
+                        <tr>
+                            <th>Status:</th>
+                            @if (Model.Status)
+                            {
+                                <td>Success</td>
+                            }
+                            else
+                            {
+                                <td>Fail</td>
+                            }
+                        </tr>
+                        @if (!Model.Status)
+                        {
+                            <tr>
+                                <th>Reason:</th>
+                                <td>@Model.Reason</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- this row will not appear when printing -->
+            <div class="row no-print">
+                <div class="col-12">
+                    <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default float-right"><i class="fas fa-print"></i> Print</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.invoice -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+@section script{ 
+    <script>window.addEventListener("load", window.print());</script>
+}

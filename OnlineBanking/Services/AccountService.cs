@@ -111,7 +111,7 @@ namespace OnlineBanking.Services
         }
         public async Task<IEnumerable<Feedback>> GetFeedbacks(string AccountId)
         {
-            var feedbacks = context.Feedbacks.ToList();
+            var feedbacks = context.Feedbacks.OrderBy(f => f.Created_at).ToList();
             if (string.IsNullOrEmpty(AccountId) == false)
             {
                 feedbacks = feedbacks.Where(f => f.AccountId.Equals(AccountId)).ToList();

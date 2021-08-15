@@ -23,11 +23,8 @@ namespace OnlineBanking.Models
         public decimal Fee { get; set; }
         [Required]
         public string Content { get; set; }
-        [Required]
         public Boolean Status { get; set; }
         public string Reason { get; set; }
-        [Required]
-        [DataType(DataType.DateTime)]
         public string Time { get; set; }
     }
 }

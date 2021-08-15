@@ -17,8 +17,6 @@ namespace OnlineBanking.Models
         public int UserId { get; set; }
         [Required]
         public string Password { get; set; }
-        [Required]
-        [DataType(DataType.DateTime)]
         public string OpenDate { get; set; }
         [Required]
         public bool Role { get; set; }

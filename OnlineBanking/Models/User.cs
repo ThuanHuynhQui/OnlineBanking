@@ -18,6 +18,7 @@ namespace OnlineBanking.Models
         [Required]
         public string Address { get; set; }
         public bool Gender { get; set; }
+        [DataType(DataType.Date)]
         public string DoB { get; set; }
         [Required]
         public string IdentityId { get; set; }

@@ -19,5 +19,7 @@ namespace OnlineBanking.Models
         public string Content { get; set; }
         public string Reply { get; set; }
         public bool Status { get; set; }
+        public string Created_at { get; set; }
+        public string Updated_at { get; set; }
     }
 }
