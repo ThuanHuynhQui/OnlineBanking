@@ -55,7 +55,7 @@ namespace OnlineBanking.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ChequeTypeId,ChequeName")] ChequeType chequeTypes)
+        public async Task<IActionResult> Create([Bind("ChequeTypeId,ChequeName")] ChequeTypes chequeTypes)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace OnlineBanking.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ChequeTypeId,ChequeName")] ChequeType chequeTypes)
+        public async Task<IActionResult> Edit(int id, [Bind("ChequeTypeId,ChequeName")] ChequeTypes chequeTypes)
         {
             if (id != chequeTypes.ChequeTypeId)
             {

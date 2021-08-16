@@ -14,10 +14,13 @@ namespace OnlineBanking.Areas.Admin.Controllers
     public class ChequesController : Controller
     {
         private readonly BankingContext _context;
-
-        public ChequesController(BankingContext context)
+        private readonly Services.IChequeService _service;
+        private readonly Services.ICardService service;
+        public ChequesController(BankingContext context, Services.ICardService service, Services.IChequeService _service)
         {
             _context = context;
+            this.service = service;
+            this._service = _service;
         }
 
         // GET: Cheques
@@ -45,8 +48,12 @@ namespace OnlineBanking.Areas.Admin.Controllers
         }
 
         // GET: Cheques/Create
-        public IActionResult Create()
+        public IActionResult Create(string cid)
         {
+            var getCardID = service.GetCards(cid).Result;
+            ViewBag.getCardID = new SelectList(getCardID, "CardId", "CardId");
+            var getTypeID = _service.GetChequeTypes().Result;
+            ViewBag.getTypeID = new SelectList(getTypeID, "ChequeTypeId", "ChequeName");
             return View();
         }
 
@@ -55,7 +62,7 @@ namespace OnlineBanking.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ChequeId,CardId,ChequeTypeId")] Cheque cheques)
+        public async Task<IActionResult> Create(Cheques cheques)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +74,7 @@ namespace OnlineBanking.Areas.Admin.Controllers
         }
 
         // GET: Cheques/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, string cid)
         {
             if (id == null)
             {
@@ -75,6 +82,10 @@ namespace OnlineBanking.Areas.Admin.Controllers
             }
 
             var cheques = await _context.Cheques.FindAsync(id);
+            var getCardID = service.GetCards(cid).Result;
+            ViewBag.getCardID = new SelectList(getCardID, "CardId", "CardId");
+            var getTypeID = _service.GetChequeTypes().Result;
+            ViewBag.getTypeID = new SelectList(getTypeID, "ChequeTypeId", "ChequeName");
             if (cheques == null)
             {
                 return NotFound();
@@ -87,34 +98,18 @@ namespace OnlineBanking.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ChequeId,CardId,ChequeTypeId")] Cheque cheques)
+        public async Task<IActionResult> Edit(int id,Cheques cheques)
         {
             if (id != cheques.ChequeId)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            else
             {
-                try
-                {
-                    _context.Update(cheques);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ChequesExists(cheques.ChequeId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _context.Update(cheques);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(cheques);
         }
 
         // GET: Cheques/Delete/5

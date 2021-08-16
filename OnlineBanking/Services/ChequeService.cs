@@ -17,9 +17,9 @@ namespace OnlineBanking.Services
         }
 
         /* ---------------------------- Cheque ------------------------- */
-        public async Task<bool> AddCheque(Cheque NewCheque)
+        public async Task<bool> AddCheque(Cheques NewCheque)
         {
-            Cheque cheque = context.Cheques.SingleOrDefault
+            Cheques cheque = context.Cheques.SingleOrDefault
                 (p => p.CardId.Equals(NewCheque.CardId));
             if (cheque ==null)
             {
@@ -49,9 +49,9 @@ namespace OnlineBanking.Services
             }
         }
 
-        public async Task<bool> EditCheque(Cheque EditCheque)
+        public async Task<bool> EditCheque(Cheques EditCheque)
         {
-            Cheque cheque = context.Cheques.SingleOrDefault
+            Cheques cheque = context.Cheques.SingleOrDefault
                 (p=>p.ChequeId.Equals(EditCheque.ChequeId));
             if (cheque!=null)
             {
@@ -66,9 +66,9 @@ namespace OnlineBanking.Services
             return false;
         }
 
-        public async Task<Cheque> GetCheque(int ChequeId)
+        public async Task<Cheques> GetCheque(int ChequeId)
         {
-            Cheque cheque = context.Cheques.SingleOrDefault
+            Cheques cheque = context.Cheques.SingleOrDefault
                 (p=>p.ChequeId.Equals(ChequeId));
             if (cheque!=null)
             {
@@ -80,9 +80,9 @@ namespace OnlineBanking.Services
             }
         }
 
-        public async Task<Cheque> GetCheques(string CardId)
+        public async Task<Cheques> GetCheques(string CardId)
         {
-            Cheque cheque = context.Cheques.SingleOrDefault
+            Cheques cheque = context.Cheques.SingleOrDefault
                 (p=>p.CardId.Equals(CardId));
             if (cheque!=null)
             {
@@ -95,9 +95,9 @@ namespace OnlineBanking.Services
         }
 
         /* ---------------------------- Cheque type ------------------------- */
-        public async Task<bool> AddChequeType(ChequeType NewChequeType)
+        public async Task<bool> AddChequeType(ChequeTypes NewChequeType)
         {
-            ChequeType cheque = context.ChequeTypes.SingleOrDefault
+            ChequeTypes cheque = context.ChequeTypes.SingleOrDefault
                 (p => p.ChequeName.Equals(NewChequeType.ChequeName));
             if (cheque == null)
             {
@@ -127,9 +127,9 @@ namespace OnlineBanking.Services
             }
         }
 
-        public async Task<bool> EditChequeType(ChequeType EditChequeType)
+        public async Task<bool> EditChequeType(ChequeTypes EditChequeType)
         {
-            ChequeType cheque = context.ChequeTypes.SingleOrDefault
+            ChequeTypes cheque = context.ChequeTypes.SingleOrDefault
                 (p => p.ChequeTypeId.Equals(EditChequeType.ChequeTypeId));
             if (cheque != null)
             {
@@ -144,9 +144,9 @@ namespace OnlineBanking.Services
             return false;
         }
 
-        public async Task<ChequeType> GetChequeType(int ChequeTypeId)
+        public async Task<ChequeTypes> GetChequeType(int ChequeTypeId)
         {
-            ChequeType cheque = context.ChequeTypes.SingleOrDefault
+            ChequeTypes cheque = context.ChequeTypes.SingleOrDefault
                 (p => p.ChequeTypeId.Equals(ChequeTypeId));
             if (cheque != null)
             {
@@ -158,7 +158,7 @@ namespace OnlineBanking.Services
             }
         }
 
-        public async Task<IEnumerable<ChequeType>> GetChequeTypes()
+        public async Task<IEnumerable<ChequeTypes>> GetChequeTypes()
         {
             return context.ChequeTypes.ToList();
         }

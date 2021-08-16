@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineBanking.Models.Cheque>
+﻿@model IEnumerable<OnlineBanking.Models.Cheques>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,14 +13,32 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.ChequeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CardId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leaf)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ChequeTypeId)
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChequeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Leaf)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ChequeTypeId)
             </td>

@@ -15,8 +15,8 @@ namespace OnlineBanking.Repository
         public DbSet<Card> Cards { get; set; }
         public DbSet<CardType> CardTypes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
-        public DbSet<Cheque> Cheques { get; set; }
-        public DbSet<ChequeType> ChequeTypes { get; set; }
+        public DbSet<Cheques> Cheques { get; set; }
+        public DbSet<ChequeTypes> ChequeTypes { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServiceCard> ServiceCards { get; set; }

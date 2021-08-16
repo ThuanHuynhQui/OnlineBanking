@@ -22,6 +22,6 @@ namespace OnlineBanking.Models
         public bool Role { get; set; }
         public bool Active { get; set; }
         public ICollection<Feedback> Feedback { get; set; }
-        public ICollection<Card> Card { get; set; }
+       /* public ICollection<Card> Card { get; set; }*/
     }
 }

@@ -73,16 +73,8 @@ namespace OnlineBanking.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
-                {
-                    service.EditCard(card);
-                    return RedirectToAction(nameof(Index));
-                }
-                else
-                {
-                    ViewBag.erorr = "Failed action";
-                    return View();
-                }
+                service.EditCard(card);
+                return RedirectToAction(nameof(Index));
             }
             catch
             {

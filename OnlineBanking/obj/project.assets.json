@@ -7232,19 +7232,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Thuan Huynh\\.nuget\\packages\\": {}
+    "C:\\Users\\gengh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\STUDY\\Document\\eProject3\\SourceCode\\OnlineBanking\\OnlineBanking\\OnlineBanking.csproj",
+      "projectUniqueName": "D:\\FPT_Aptech\\semeter_03\\eProject\\Source_Code\\OnlineBanking\\OnlineBanking\\OnlineBanking.csproj",
       "projectName": "OnlineBanking",
-      "projectPath": "E:\\STUDY\\Document\\eProject3\\SourceCode\\OnlineBanking\\OnlineBanking\\OnlineBanking.csproj",
-      "packagesPath": "C:\\Users\\Thuan Huynh\\.nuget\\packages\\",
-      "outputPath": "E:\\STUDY\\Document\\eProject3\\SourceCode\\OnlineBanking\\OnlineBanking\\obj\\",
+      "projectPath": "D:\\FPT_Aptech\\semeter_03\\eProject\\Source_Code\\OnlineBanking\\OnlineBanking\\OnlineBanking.csproj",
+      "packagesPath": "C:\\Users\\gengh\\.nuget\\packages\\",
+      "outputPath": "D:\\FPT_Aptech\\semeter_03\\eProject\\Source_Code\\OnlineBanking\\OnlineBanking\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Thuan Huynh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gengh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7311,7 +7311,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -7,14 +7,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineBanking.Models
 {
-    [Table("tbChequeType")]
-    public class ChequeType
+    [Table("tbCheque")]
+    public class Cheques
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ChequeTypeId { get; set; }
+        public int ChequeId { get; set; }
         [Required]
-        public string ChequeName { get; set; }
-        public ICollection<Cheque> Cheque { get; set; }
+        public string CardId { get; set; }
+        [Required]
+        public int Leaf { get; set; }
+        [Required]
+        public int ChequeTypeId { get; set; }
     }
 }
