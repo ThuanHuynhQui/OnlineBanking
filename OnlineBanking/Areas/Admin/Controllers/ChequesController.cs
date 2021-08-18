@@ -98,7 +98,7 @@ namespace OnlineBanking.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,Cheques cheques)
+        public async Task<IActionResult> Edit(int id, [Bind("ChequeId,CardId,ChequeTypeId")] Cheques cheques)
         {
             if (id != cheques.ChequeId)
             {

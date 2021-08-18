@@ -19,9 +19,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Data\" />
     <Folder Include="Views\Shared\" />
-    <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
@@ -40,6 +37,14 @@
     <None Include="Areas\Admin\Views\CardTypes\Details.cshtml" />
     <None Include="Areas\Admin\Views\CardTypes\Edit.cshtml" />
     <None Include="Areas\Admin\Views\CardTypes\Index.cshtml" />
+    <None Include="wwwroot\js\site.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\Session\Login.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

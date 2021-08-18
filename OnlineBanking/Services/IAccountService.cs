@@ -14,6 +14,7 @@ namespace OnlineBanking.Services
         Task<bool> AddAccount(UserAccount NewUserAccount);
         Task<bool> EditAccount(Account EditAccount);
         Task<bool> DeleteAccount(string AccountId);
+        Task<bool> CheckLogin(string AccountId, string password);
 
         //User
         Task<IEnumerable<User>> GetUsers();

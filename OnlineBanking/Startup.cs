@@ -26,8 +26,17 @@ namespace OnlineBanking
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
             services.AddControllersWithViews();
-            string url = "server=.;database=OnlineBankingDB;Trusted_Connection=true";
+            //string url = "server=;database=OnlineBankingDB;Trusted_Connection=true";
+            string url = "server=DESKTOP-S90653I\\SQLEXPRESS;database=OnlineBankingDB;uid=thuan.huynhqui;pwd=1";
             services.AddScoped<ICardService, CardService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<ITransactionService, TransactionService>();
@@ -54,14 +63,16 @@ namespace OnlineBanking
 
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "Admin",
-                    pattern: "{area:exists}/{controller=Account}/{action=Index}/{id?}");
+                    pattern: "{area:exists}/{controller=Session}/{action=Login}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Login}/{id?}");
             });
         }
     }

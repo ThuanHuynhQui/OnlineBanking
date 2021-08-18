@@ -7,6 +7,7 @@ using OnlineBanking.Services;
 using OnlineBanking.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace OnlineBanking.Areas.Admin.Controllers
 {
@@ -18,10 +19,34 @@ namespace OnlineBanking.Areas.Admin.Controllers
         {
             this.service = service;
         }
+        private bool CheckSession()
+        {
+            var account = JsonConvert.DeserializeObject<Account>(HttpContext.Session.GetString("Account"));
+            if (account != null)
+            {
+                if (account.Role)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
         public IActionResult Index()
         {
-            var accounts = service.GetAccounts().Result;
-            return View(accounts);
+            
+            if (CheckSession())
+            {
+                var accounts = service.GetAccounts().Result;
+                return View(accounts);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Session");
+            }
         }
 
         [HttpGet]

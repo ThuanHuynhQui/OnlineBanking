@@ -6,32 +6,39 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using OnlineBanking.Services;
 
 namespace OnlineBanking.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IAccountService service;
+        public HomeController (IAccountService service)
         {
-            _logger = logger;
+            this.service = service;
         }
 
         public IActionResult Index()
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Login()
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Login(string AccountId, string password)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (service.CheckLogin(AccountId, password).Result)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Error = "Invalid credentials, please try again.";
+            }
+            return View();
         }
     }
 }

@@ -94,6 +94,19 @@ namespace OnlineBanking.Services
             return await context.Accounts.ToListAsync();
         }
 
+        public async Task<bool> CheckLogin(string AccountId, string password)
+        {
+            var result = context.Accounts.SingleOrDefault(a => a.AccountId.Equals(AccountId) && a.Password.Equals(password));
+            if (result != null)
+            {
+                if (result.Role)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         // ----------------- Feedback -------------------- //
         public async Task<bool> AddFeedback(Feedback NewFeedback)
         {
