@@ -1,0 +1,27 @@
+﻿@model OnlineBanking.Models.Card
+
+@using (Html.BeginForm())
+{
+    <input type="text" name="receiverID" />
+    <input type="submit" value="Search" />
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>FullName</th>
+            <th>CardID</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>@ViewBag.ReceiverID.FullName</td>
+            <td>@ViewBag.ReceiverID.CardId</td>
+        </tr>
+
+    </tbody>
+</table>
+<div>
+    @ViewBag.erorr
+</div>
+
