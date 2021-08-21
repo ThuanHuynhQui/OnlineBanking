@@ -19,5 +19,6 @@ namespace OnlineBanking.Models
         public int Leaf { get; set; }
         [Required]
         public int ChequeTypeId { get; set; }
+        public bool Active { get; set; }
     }
 }
