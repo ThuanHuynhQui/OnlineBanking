@@ -72,7 +72,7 @@ namespace OnlineBanking
                     pattern: "{area:exists}/{controller=Session}/{action=Login}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Service}/{action=Index}/{id?}");
+                    pattern: "{controller=History}/{action=Index}/{id?}");
             });
         }
     }

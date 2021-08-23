@@ -307,7 +307,6 @@ D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\bin\De
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.csproj.AssemblyReference.cache
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.GeneratedMSBuildEditorConfig.editorconfig
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.AssemblyInfoInputs.cache
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.AssemblyInfo.cs
@@ -376,5 +375,7 @@ D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\De
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.genruntimeconfig.cache
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\Index.cshtml.g.cs
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\FundTransfer.cshtml.g.cs
-D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\Edit.cshtml.g.cs
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\Search.cshtml.g.cs
+D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\History\Details.cshtml.g.cs
+D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\History\Index.cshtml.g.cs
+D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.csproj.AssemblyReference.cache
