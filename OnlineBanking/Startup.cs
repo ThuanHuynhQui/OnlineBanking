@@ -36,8 +36,7 @@ namespace OnlineBanking
             });
             services.AddControllersWithViews();
             //string url = "server=;database=OnlineBankingDB;Trusted_Connection=true";
-            //string url = "server=;database=OnlineBankingDB;Trusted_Connection=true";
-            string url = "server=DESKTOP-S90653I\\SQLEXPRESS;database=OnlineBankingDB;uid=thuan.huynhqui;pwd=1";
+            string url = "server=.;database=OnlineBankingDB;Trusted_Connection=true";
             services.AddScoped<ICardService, CardService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<ITransactionService, TransactionService>();
@@ -73,7 +72,7 @@ namespace OnlineBanking
                     pattern: "{area:exists}/{controller=Session}/{action=Login}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=Login}/{id?}");
+                    pattern: "{controller=History}/{action=Index}/{id?}");
             });
         }
     }

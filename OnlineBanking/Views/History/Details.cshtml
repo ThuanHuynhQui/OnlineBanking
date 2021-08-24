@@ -1,0 +1,147 @@
+﻿@model OnlineBanking.Models.Transaction
+@{
+    ViewData["Title"] = "Details's Transaction";
+}
+<div class="row" id="details">
+    <div class="col-12">
+        <!-- Main content -->
+        <div class="invoice p-3 mb-3">
+            <!-- title row -->
+            <div class="row">
+                <div class="col-12">
+                    <h4>
+                        <i class="fas fa-globe"></i> Online Banking
+                        <small class="float-right">Date: @ViewBag.Date</small>
+                    </h4>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- info row -->
+            <div class="row invoice-info">
+                <div class="col-sm-4 invoice-col">
+                    From
+                    <address>
+                        <strong>@ViewBag.Sender.FullName</strong><br>
+                        @ViewBag.Sender.Address<br>
+                        Phone: @ViewBag.Sender.Phone<br>
+                        Email: @ViewBag.Sender.Email
+                    </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                    To
+                    <address>
+                        <strong>@ViewBag.Receiver.FullName</strong><br>
+                        @ViewBag.Receiver.Address<br>
+                        Phone: @ViewBag.Receiver.Phone<br>
+                        Email: @ViewBag.Receiver.Email
+                    </address>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!-- Table row -->
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>Sender Card Id:</th>
+                            <td>@Model.SenderCardId</td>
+                        </tr>
+                        <tr>
+                            <th>Receiver Card Id:</th>
+                            <td>@Model.ReceiverCardId</td>
+                        </tr>
+                        <tr>
+                            <th>Amount:</th>
+                            <td>@Model.Amount</td>
+                        </tr>
+                        <tr>
+                            <th>Fee:</th>
+                            <td>@Model.Fee</td>
+                        </tr>
+                        <tr>
+                            <th>Content:</th>
+                            <td>@Model.Content</td>
+                        </tr>
+                        <tr>
+                            <th>Time:</th>
+                            <td>@Model.Time</td>
+                        </tr>
+                        <tr>
+                            <th>Status:</th>
+                            @if (Model.Status)
+                            {
+                                <td>Success</td>
+                            }
+                            else
+                            {
+                                <td>Fail</td>
+                            }
+                        </tr>
+                        @if (!Model.Status)
+                        {
+                            <tr>
+                                <th>Reason:</th>
+                                <td>@Model.Reason</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- this row will not appear when printing -->
+            <div class="row no-print">
+                <div class="col-12">
+                    <button class="btn btn-info float-right" onclick="javascript:demoFromHTML();"><i class="fas fa-print"></i> Print to PDF</button>
+                </div>
+            </div>
+            @section Scripts
+{
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+                <script>
+                    function demoFromHTML() {
+                        var pdf = new jsPDF('p', 'pt', 'letter');
+                        // source can be HTML-formatted string, or a reference
+                        // to an actual DOM element from which the text will be scraped.
+                        source = $('#details')[0];
+
+                        // we support special element handlers. Register them with jQuery-style
+                        // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+                        // There is no support for any other type of selectors
+                        // (class, of compound) at this time.
+                        specialElementHandlers = {
+                            // element with id of "bypass" - jQuery style selector
+                            '#bypassme': function (element, renderer) {
+                                // true = "handled elsewhere, bypass text extraction"
+                                return true
+                            }
+                        };
+                        margins = {
+                            top: 80,
+                            bottom: 60,
+                            left: 40,
+                            width: 522
+                        };
+                        // all coords and widths are in jsPDF instance's declared units
+                        // 'inches' in this case
+                        pdf.fromHTML(
+                            source, // HTML string or DOM elem ref.
+                            margins.left, // x coord
+                            margins.top, { // y coord
+                            'width': margins.width, // max width of content on PDF
+                            'elementHandlers': specialElementHandlers
+                        },
+
+                            function (dispose) {
+                                // dispose: object with X, Y of the last line add to the PDF
+                                //          this allow the insertion of new lines after html
+                                pdf.save('Test.pdf');
+                            }, margins);
+                    }
+                </script>
+            }
+        </div>
+
+        <!-- /.invoice -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
