@@ -1,0 +1,69 @@
+﻿@model OnlineBanking.Models.UserAccount
+@{
+    Layout = "_LgLayout";
+}
+
+<!-- Register -->
+<section class="w3l-contact py-5" id="contact">
+    <div class="container py-4 mb-5">
+        <div class="mx-auto" style="max-width:1000px">
+            <div class="contact-form-sec pt-0 mt-md-5">
+                <div class="title-heading-w3 text-center mx-auto mb-1 pb-sm-4" style="max-width:600px">
+                    <a asp-action="Login" asp-controller="Login"><h3 class="title-style"><span>Online</span>Banking</h3></a>
+                </div>
+                <div class="text-center text-danger">
+                    @ViewBag.Error
+                </div>
+                <div class="row contact-block align-items-center">
+                    <div class="col-md-9 contact-right mt-md-0 mt-4 pl-lg-4 m-auto">
+                        <form asp-action="Register" method="post" class="signin-form">
+                            <div class="input-grids">
+                                <input type="hidden" asp-for="Active" value="0" />
+                            </div>
+                            <div class="input-grids">
+                                <input type="text" asp-for="FullName" id="w3lSender" placeholder="Your Fullname..."
+                                       class="contact-input my-3" required />
+                            </div>
+                            <div class="input-grids">
+                                <input type="email" asp-for="Email" id="w3lSender" placeholder="Your Email..."
+                                       class="contact-input my-3" required />
+                            </div>
+                            <div class="input-grids">
+                                <input type="text" asp-for="AccountId" id="w3lName" placeholder="Your Account ID..."
+                                       class="contact-input my-3" required />
+                            </div>
+                            <div class="input-grids">
+                                <input type="password" asp-for="Password" id="w3lSender" placeholder="Your Password..."
+                                       class="contact-input my-3" required />
+                            </div>
+                            <div class="input-grids">
+                                <input type="text" asp-for="Address" id="w3lSender" placeholder="Your Address..."
+                                       class="contact-input my-3" required />
+                            </div>
+                            <div class="input-grids">
+                                <input type="text" asp-for="IdentityId" id="w3lSender" placeholder="Your Identity Card ID..."
+                                       class="contact-input my-3" required />
+                            </div>
+                            <div class="input-grids">
+                                <label for="">Gender: </label>
+                                <input type="radio" asp-for="Gender" value="1" id="Male" style="-webkit-appearance: button; width: auto;"><label for="Male"> Male </label> |
+                                <input type="radio" asp-for="Gender" value="0" id="Female" style="-webkit-appearance: button; width: auto;"><label for="Female"> Female </label>
+                            </div>
+                            <div class="input-grids">
+                                <p>Your birthday:</p>
+                                <input type="date" asp-for="DoB" id="w3lSender"
+                                        class="contact-input my-3" required />
+                            </div>
+                            <div class="input-grids">
+                                <input type="text" asp-for="Phone" id="w3lSender" placeholder="Your Phone..."
+                                       class="contact-input my-3" required />
+                            </div>
+                            <button class="btn btn-style w-50 mx-auto my-3" style="display: block;">Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //Register -->

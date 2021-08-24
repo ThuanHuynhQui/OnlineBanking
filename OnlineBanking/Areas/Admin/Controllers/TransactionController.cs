@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OnlineBanking.Services;
+using OnlineBanking.ActionFilter;
 
 namespace OnlineBanking.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [SessionCheckAdmin]
     public class TransactionController : Controller
     {
         private readonly ITransactionService transService;

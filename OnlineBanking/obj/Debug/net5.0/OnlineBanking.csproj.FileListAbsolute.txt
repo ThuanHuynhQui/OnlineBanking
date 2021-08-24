@@ -119,6 +119,7 @@ E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\bin\Debug\net
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.csproj.AssemblyReference.cache
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.GeneratedMSBuildEditorConfig.editorconfig
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.AssemblyInfoInputs.cache
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.AssemblyInfo.cs
@@ -170,10 +171,10 @@ E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Shared\_LgLayout.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
@@ -185,7 +186,6 @@ E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\ref\OnlineBanking.dll
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.pdb
 E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.genruntimeconfig.cache
-E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\OnlineBanking.csproj.AssemblyReference.cache
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\bin\Debug\net5.0\appsettings.Development.json
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\bin\Debug\net5.0\appsettings.json
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\bin\Debug\net5.0\bundleconfig.json
@@ -378,3 +378,16 @@ D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\De
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\FundTransfer.cshtml.g.cs
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\Edit.cshtml.g.cs
 D:\FPT_Aptech\semeter_03\eProject\Source_Code\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\Search.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\Edit.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\FundTransfer.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\Index.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Service\Search.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Login\Register.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\bin\Debug\net5.0\MailKit.dll
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\bin\Debug\net5.0\MimeKit.dll
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Login\ForgotPassword.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Login\VerifyCode.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Views\Login\ResetPassword.cshtml.g.cs
+E:\STUDY\Document\eProject3\SourceCode\OnlineBanking\OnlineBanking\obj\Debug\net5.0\Razor\Areas\Admin\Views\Account\Edit.cshtml.g.cs

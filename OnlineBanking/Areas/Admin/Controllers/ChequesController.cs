@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineBanking.Models;
 using OnlineBanking.Repository;
+using OnlineBanking.ActionFilter;
 
 namespace OnlineBanking.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [SessionCheckAdmin]
     public class ChequesController : Controller
     {
         private readonly BankingContext _context;

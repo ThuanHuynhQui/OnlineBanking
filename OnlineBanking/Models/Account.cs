@@ -21,6 +21,7 @@ namespace OnlineBanking.Models
         [Required]
         public bool Role { get; set; }
         public bool Active { get; set; }
+        public int AccessFailedCount { get; set; }
         public ICollection<Feedback> Feedback { get; set; }
        /* public ICollection<Card> Card { get; set; }*/
     }

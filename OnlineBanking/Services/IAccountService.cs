@@ -11,10 +11,15 @@ namespace OnlineBanking.Services
         //Account
         Task<IEnumerable<Account>> GetAccounts();
         Task<Account> GetAccount(string AccountId);
+        Task<Account> GetAccountByEmail(string Email);
         Task<bool> AddAccount(UserAccount NewUserAccount);
         Task<bool> EditAccount(Account EditAccount);
         Task<bool> DeleteAccount(string AccountId);
-        Task<bool> CheckLogin(string AccountId, string password);
+        Task<bool> CheckLoginAdmin(string AccountId, string password);
+        Task<string> CheckLoginCustomer(string AccountId, string password);
+        Task<bool> CheckEmail(string email);
+        Task<bool> CheckIdentityId(string identityId);
+        Task<bool> CheckAccountId(string accountId);
 
         //User
         Task<IEnumerable<User>> GetUsers();
@@ -22,6 +27,7 @@ namespace OnlineBanking.Services
         Task<bool> AddUser(User NewUser);
         Task<bool> EditUser(User EditUser);
         Task<UserAccount> GetUserAccount(string AccountId);
+        Task<bool> EditUserAccount(UserAccount userAccount);
 
         //Feedback
         Task<IEnumerable<Feedback>> GetFeedbacks(string AccountId);

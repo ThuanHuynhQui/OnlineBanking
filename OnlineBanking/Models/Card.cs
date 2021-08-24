@@ -16,8 +16,6 @@ namespace OnlineBanking.Models
         [Required]
         public string AccountId { get; set; }
         [Required]
-        public string FullName { get; set; }
-        [Required]
         public decimal Balance { get; set; }
         [Required]
         public string Pin { get; set; }

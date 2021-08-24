@@ -8,45 +8,25 @@ using OnlineBanking.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Newtonsoft.Json;
+using OnlineBanking.ActionFilter;
+using OnlineBanking.EncryptTool;
 
 namespace OnlineBanking.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [SessionCheckAdmin]
     public class AccountController : Controller
     {
         private readonly IAccountService service;
+        private readonly EncryptString encrypt = new EncryptString();
         public AccountController(IAccountService service)
         {
             this.service = service;
         }
-        private bool CheckSession()
-        {
-            var account = JsonConvert.DeserializeObject<Account>(HttpContext.Session.GetString("Account"));
-            if (account != null)
-            {
-                if (account.Role)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            return false;
-        }
         public IActionResult Index()
         {
-            
-            if (CheckSession())
-            {
-                var accounts = service.GetAccounts().Result;
-                return View(accounts);
-            }
-            else
-            {
-                return RedirectToAction("Login", "Session");
-            }
+            var accounts = service.GetAccounts().Result;
+            return View(accounts);
         }
 
         [HttpGet]
@@ -60,7 +40,7 @@ namespace OnlineBanking.Areas.Admin.Controllers
         {
             try
             {
-                if(file.FileName.Length > 0)
+                if(file != null)
                 {
                     var path = Path.Combine("wwwroot/Images", file.FileName);
                     Stream stream = new FileStream(path, FileMode.Create);
@@ -72,6 +52,7 @@ namespace OnlineBanking.Areas.Admin.Controllers
                     NewUserAccount.Avatar = "NoAvatar.png";
                 }
                 NewUserAccount.OpenDate = DateTime.Now.ToShortDateString();
+                NewUserAccount.Active = true;
                 if (service.AddAccount(NewUserAccount).Result)
                 {
                     return RedirectToAction("Index", "Account");
@@ -135,6 +116,34 @@ namespace OnlineBanking.Areas.Admin.Controllers
                 ViewBag.Error = e.Message;
             }
             return View();
+        }
+        [HttpGet]
+        public IActionResult Edit(string AccountId)
+        {
+            UserAccount model = service.GetUserAccount(AccountId).Result;
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Edit(UserAccount userAccount)
+        {
+            try
+            {
+                string encryptedPassword = encrypt.Encrypt(userAccount.Password);
+                userAccount.Password = encryptedPassword;
+                if (service.EditUserAccount(userAccount).Result)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.Error = "Fail to edit user account!";
+                }
+            }
+            catch (Exception e)
+            {
+                ViewBag.Error = e.Message;
+            }
+            return View(userAccount);
         }
     }
 }

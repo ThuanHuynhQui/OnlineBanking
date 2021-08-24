@@ -1,5 +1,4 @@
-﻿@model OnlineBanking.Models.Account
-@{
+﻿@{
     Layout = "_SessionLayout";
 }
 
@@ -11,11 +10,11 @@
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg text-danger">@ViewBag.Error</p>
 
             <form asp-action="Login" method="post">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Account ID" asp-for="AccountId" required>
+                    <input type="text" class="form-control" placeholder="Account ID" name="AccountId" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -23,7 +22,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password" asp-for="Password" required>
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>

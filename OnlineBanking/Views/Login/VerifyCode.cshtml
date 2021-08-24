@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Forgot Password";
+    Layout = "_LgLayout";
+}
+
+<!-- Forgot password -->
+<section class="w3l-contact py-5" id="contact">
+    <div class="container py-4 mb-5">
+        <div class="mx-auto" style="max-width:1000px">
+            <div class="contact-form-sec pt-0 mt-md-5">
+                <div class="title-heading-w3 text-center mx-auto mb-1 pb-sm-4" style="max-width:600px">
+                    <a asp-action="Login" asp-controller="Login"><h3 class="title-style"><span>Online</span>Banking</h3></a>
+                </div>
+                <div class="row contact-block align-items-center">
+                    <div class="col-md-9 contact-right mt-md-0 mt-4 pl-lg-4 m-auto">
+                        <form asp-action="VerifyCode" asp-controller="Login" method="post" class="signin-form">
+                            <input type="hidden" value="@ViewBag.token" name="token"/>
+                            <input type="hidden" value="@ViewBag.email" name="email"/>
+                            <div class="input-grids">
+                                <p>We've sent an email that contains the recovery code. Please check your email and enter the code here</p>
+                                <input type="text" name="code" placeholder="Your Code..." class="contact-input my-3" required />
+                            </div>
+                            <span class="text-danger">@ViewBag.Error</span>
+                            <button type="submit" class="btn btn-style w-50 my-3" style="display: inline-block;">Request New Password</button>
+                            <a asp-action="ForgotPassword" class="btn btn-style w-25 my-3" style="display: inline-block;">Resend code</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //Forgot password -->
+

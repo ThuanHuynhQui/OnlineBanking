@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OnlineBanking.ActionFilter;
 
 namespace OnlineBanking.Controllers
 {
     [Area("Admin")]
+    [SessionCheckAdmin]
     public class CardsController : Controller
     {
         private Services.ICardService service;

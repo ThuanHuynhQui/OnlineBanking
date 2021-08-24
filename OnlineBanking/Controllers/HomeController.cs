@@ -7,9 +7,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using OnlineBanking.Services;
+using OnlineBanking.ActionFilter;
 
 namespace OnlineBanking.Controllers
 {
+    [SessionCheckCustomer]
     public class HomeController : Controller
     {
         private readonly IAccountService service;
@@ -22,23 +24,6 @@ namespace OnlineBanking.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Login(string AccountId, string password)
-        {
-            if (service.CheckLogin(AccountId, password).Result)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ViewBag.Error = "Invalid credentials, please try again.";
-            }
-            return View();
-        }
+        
     }
 }

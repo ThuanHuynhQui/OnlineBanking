@@ -5,10 +5,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using OnlineBanking.Services;
 using OnlineBanking.Models;
+using OnlineBanking.ActionFilter;
 
 namespace OnlineBanking.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [SessionCheckAdmin]
     public class FeedbackController : Controller
     {
         private readonly IAccountService service;

@@ -12438,7 +12438,7 @@ h3.title-main:after {
 .w3l-banner {
   position: relative;
   overflow: hidden;
-  min-height: calc(100vh - 80px);
+  min-height: calc(20vh - 80px);
 }
 
 .w3l-banner .banner-image {

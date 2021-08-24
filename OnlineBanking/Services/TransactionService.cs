@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using OnlineBanking.Models;
 using OnlineBanking.Repository;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace OnlineBanking.Services
 {
@@ -44,26 +45,23 @@ namespace OnlineBanking.Services
 
         public async Task<bool> TransferMoney(Transaction transaction)
         {
-            using (var trans = context.Database.BeginTransaction())
+            using (IDbContextTransaction trans = context.Database.BeginTransaction())
             {
                 try
                 {
                     Card sender = context.Cards.SingleOrDefault(c => c.CardId.Equals(transaction.SenderCardId));
                     Card receiver = context.Cards.SingleOrDefault(c => c.CardId.Equals(transaction.ReceiverCardId));
-                    if (sender != null && receiver != null)
-                    {
-                        sender.Balance = sender.Balance - transaction.Amount;
-                        receiver.Balance = receiver.Balance + transaction.Amount;
-                        context.SaveChanges();
-                        trans.Commit();
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    // ------ Update Sender -------//
+                    sender.Balance = sender.Balance - transaction.Amount;
+                    context.SaveChanges();
+
+                    // ------ Update Receiver ------ //
+                    receiver.Balance = receiver.Balance + transaction.Amount;
+                    context.SaveChanges();
+                    trans.Commit();
+                    return true;
                 }
-                catch (Exception)
+                catch
                 {
                     trans.Rollback();
                     return false;

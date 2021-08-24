@@ -7,6 +7,7 @@ using OnlineBanking.Models;
 using OnlineBanking.Services;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
+using OnlineBanking.EncryptTool;
 
 namespace OnlineBanking.Areas.Admin.Controllers
 {
@@ -14,6 +15,7 @@ namespace OnlineBanking.Areas.Admin.Controllers
     public class SessionController : Controller
     {
         private readonly IAccountService service;
+        private readonly EncryptString encrypt = new EncryptString();
         public SessionController(IAccountService service)
         {
             this.service = service;
@@ -22,6 +24,14 @@ namespace OnlineBanking.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            if (HttpContext.Session.GetString("Account") != null)
+            {
+                Account a = JsonConvert.DeserializeObject<Account>(HttpContext.Session.GetString("Account"));
+                if (a.Active && a.Role)
+                {
+                    return RedirectToAction("Index", "Feedback");
+                }
+            }
             return View();
         }
         [HttpPost]
@@ -29,7 +39,8 @@ namespace OnlineBanking.Areas.Admin.Controllers
         {
             try
             {
-                if (service.CheckLogin(AccountId, password).Result)
+                string encryptedPassword = encrypt.Encrypt(password);
+                if (service.CheckLoginAdmin(AccountId, encryptedPassword).Result)
                 {
                     var account = service.GetAccount(AccountId).Result;
                     HttpContext.Session.SetString("Account", JsonConvert.SerializeObject(account));
@@ -45,6 +56,11 @@ namespace OnlineBanking.Areas.Admin.Controllers
                 ViewBag.Error = e.Message;
             }
             return View();
+        }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("Account");
+            return RedirectToAction("Login", "Session");
         }
     }
 }
